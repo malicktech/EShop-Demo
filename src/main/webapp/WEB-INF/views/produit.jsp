@@ -14,8 +14,7 @@
 	<a href="<c:url value="/j_spring_security_logout" />">Logout</a>
 	<div class="errors">${exception}</div>
 	<div id="formProd" class="cadre">
-		<f:form modelAttribute="produit" action="saveProd" method="post"
-			enctype="multipart/form-data">
+		<f:form modelAttribute="produit" action="saveProd" method="post" enctype="multipart/form-data">
 			<table>
 				<tr>
 					<td>ID Produit</td>
@@ -30,9 +29,9 @@
 				</tr>
 				<tr>
 					<td>Catégorie</td>
-					<td><f:select path="categorie.idcategorie"
-							items="${categories}" itemValue="idcategorie"
-							itemLabel="nomCategorie"></f:select></td>
+					<td><f:select path="categorie.idCategorie" items="${categories}" itemValue="idcategorie"
+							itemLabel="nomCategorie"></f:select>
+					</td>
 					<td><f:errors path="designation" cssClass="errors"></f:errors></td>
 				</tr>
 				<tr>

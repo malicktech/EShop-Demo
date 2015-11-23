@@ -25,7 +25,8 @@
 	
 	<!-- Configuration Upload-->
 	<beans:bean name="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<beans:property name="maxUploadSize" value="100000"></beans:property>
+		<beans:property name="maxUploadSize" value="1000000"></beans:property>
+<!-- 	1000000	octects  : taille de la requête, y compris les données-->
 	</beans:bean>
 	
 	

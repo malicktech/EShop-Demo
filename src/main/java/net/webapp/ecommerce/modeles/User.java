@@ -1,6 +1,7 @@
 package net.webapp.ecommerce.modeles;
 
 import java.io.Serializable;
+import java.security.MessageDigest;
 import java.util.Collection;
 
 import javax.persistence.Column;
@@ -29,7 +30,6 @@ public class User implements Serializable {
 	private String userName;
 
 	@NotEmpty
-	@Size(min = 4, max = 10)
 	private String password;
 
 	private boolean activated;
@@ -60,6 +60,7 @@ public class User implements Serializable {
 
 	public void setIdUser(Long idUser) {
 		this.idUser = idUser;
+
 	}
 
 	public String getUserName() {
@@ -71,11 +72,26 @@ public class User implements Serializable {
 	}
 
 	public String getPassword() {
+
 		return password;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		MessageDigest m;
+		try {
+			m = MessageDigest.getInstance("MD5");
+			m.update(password.getBytes("UTF8"));
+			byte s[] = m.digest();
+			String result = "";
+			for (int i = 0; i < s.length; i++) {
+				result += Integer.toHexString((0x000000ff & s[i]) | 0xffffff00).substring(6);
+			}
+			this.password = result;
+		} catch (Exception e) {
+			e.printStackTrace();
+			this.password = password;
+		}
+
 	}
 
 	public boolean isActivated() {

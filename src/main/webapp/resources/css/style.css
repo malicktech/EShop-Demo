@@ -14,3 +14,7 @@ border:1px dotted gray;
 background:white;
 padding:5px;
 }
+
+.errors {
+	color : red;
+}

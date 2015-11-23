@@ -20,7 +20,7 @@ import net.webapp.ecommerce.modeles.Produit;
 import net.webapp.ecommerce.services.ProduitService;
 
 @Controller
-@RequestMapping(value = "/adminProd")
+@RequestMapping(value = "/produit")
 public class ProduitController {
 
 	@Autowired
@@ -31,7 +31,7 @@ public class ProduitController {
 		model.addAttribute("produit", new Produit());
 		model.addAttribute("produits", produitService.listproduits());
 		model.addAttribute("categories", produitService.listCategories());
-		return "produits";
+		return "produit";
 	}
 
 	@RequestMapping(value = "/save")
