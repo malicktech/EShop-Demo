@@ -19,9 +19,7 @@
 		<property name="username" value="root"></property>
 		<property name="password" value="admin"></property>
 	</bean>
-
-
-
+	
 
 	<bean id="persistenceUnitManager"
 		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
@@ -56,9 +54,9 @@
 	</bean>
 	
 	
-		<!-- SPRING SECURITY -->
+	<!-- SPRING SECURITY -->
 	<s:http>
-		<s:intercept-url pattern="/produit/**" access="ADMIN_PROD" />
+		<s:intercept-url pattern="/produit/**" access="produit" />
 		<s:intercept-url pattern="/categorie/**" access="ADMIN_CAT" />
 		<s:form-login login-page = "/login" default-target-url="/produit/index" authentication-failure-url="/login" />
 		<s:logout logout-success-url ="/login" />

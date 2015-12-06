@@ -10,15 +10,23 @@
 
 	<properties>
 		<java-version>1.8</java-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<org.springframework-version>4.2.3.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.springframework.security-version>4.0.3.RELEASE</org.springframework.security-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
+		<org.hibernate.entitymanager-version>4.3.11.Final</org.hibernate.entitymanager-version> 
+		<org.hibernate.validator-version>5.2.2.Final</org.hibernate.validator-version>
+		<mysql-connector-java-version>5.1.6</mysql-connector-java-version>
 	</properties>
 
 
 	<dependencies>
 		<!-- Spring -->
+			<!-- gestion du cycle de vie des objets de l'appli ;  gestion de l'inversion de controle/injection de dépendance -->
+	<!-- Conteneur léger :  Il prend  en charge la création d’objets, leur mise en relation par l’intermédiaire d’un fichier de configuration 
+	qui décrit les objets à fabriquer et les relations de dépendances entre ces objets.  -->
+	
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -56,6 +64,11 @@
 			<artifactId>spring-core</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
+		<dependency> <!-- AOP utilisé pour profiler le temps d'execution des fonction --> 
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-aop</artifactId>
+		<version>${org.springframework-version}</version>
+	</dependency>
 
 		<!-- Spring Security --> <!-- securiser les appli web -->
 		<dependency>
@@ -76,21 +89,21 @@
 
 		<!-- Hibernate -->
 		<dependency>
-			<groupId>org.hibernate</groupId>
+			<groupId>org.hibernate</groupId>  
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.11.Final</version>
+			<version>${org.hibernate.entitymanager-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
+			<groupId>org.hibernate</groupId> 
 			<artifactId>hibernate-validator</artifactId>
-			<version>5.2.2.Final</version>
+			<version>${org.hibernate.validator-version}</version>
 		</dependency>
 
 		<!-- MySQL Connector -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.6</version>
+			<version>${mysql-connector-java-version}</version>
 		</dependency>
 
 		<!-- Apache Commons Upload : parser les données binaire multipart du formulaire -->
@@ -113,6 +126,7 @@
 		</dependency>
 
 		<!-- Logging -->
+		<!-- Journalisation slf4j -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>

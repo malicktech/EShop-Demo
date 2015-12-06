@@ -28,9 +28,9 @@ public class TestDao {
 
 			List<Categorie> cats1 = service.listCategories();
 
-			service.ajouterCategorie(new Categorie("Ordinateur", "Description Catégorie Ordinateurs"));
-			service.ajouterCategorie(new Categorie("Imprimante", "Description Catégorie Imprimantes"));
-			service.ajouterCategorie(new Categorie("Téléphone", "Description Catégorie Téléphone"));
+			service.ajouterCategorie(new Categorie("Ordinateur", "Description Catï¿½gorie Ordinateurs"));
+			service.ajouterCategorie(new Categorie("Imprimante", "Description Catï¿½gorie Imprimantes"));
+			service.ajouterCategorie(new Categorie("TÃ©lÃ©phone", "Description Catï¿½gorie Tï¿½lï¿½phone"));
 
 			List<Categorie> cats2 = service.listCategories();
 
