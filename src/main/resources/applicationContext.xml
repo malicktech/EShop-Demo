@@ -11,11 +11,11 @@
 	<!-- BEAN / INJECTION DEPENDANCES -->
 	<!-- ============================================================================================== -->
 
-	<bean id="dao" class="net.webapp.ecommerce.dao.EBoutiqueDaoImpl"></bean>
+<!-- 	<bean id="dao" class="net.webapp.ecommerce.dao.EBoutiqueDaoImpl"></bean> -->
 
-	<bean id="service" class="net.webapp.ecommerce.metier.impl.EBoutiqueServiceImpl">
-		<property name="dao" ref="dao"></property>
-	</bean>
+<!-- 	<bean id="service" class="net.webapp.ecommerce.metier.impl.EBoutiqueServiceImpl"> -->
+<!-- 		<property name="dao" ref="dao"></property> -->
+<!-- 	</bean> -->
 
 	<!-- CONFIG JPA -->
 	<!-- ============================================================================================== -->

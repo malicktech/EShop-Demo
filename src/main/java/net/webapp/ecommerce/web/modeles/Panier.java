@@ -21,7 +21,7 @@ public class Panier implements Serializable {
 	 */
 	public void addItem(Produit p, int quantite) {
 		LigneCommande lc = items.get(p.getIdProduit());
-		if (lc != null) {
+		if (lc == null) {
 			LigneCommande article = new LigneCommande();
 			article.setProduit(p);
 			article.setQuantite(quantite);
@@ -45,12 +45,13 @@ public class Panier implements Serializable {
 	 * Nombre de produit
 	 */
 	public int getSize() {		
-		int nb=0;
-		Collection<LigneCommande> items = getItems();
-		for(LigneCommande item : items){
-		nb += item.getQuantite();
-		}
-		return nb;		
+//		int nb=0;
+//		Collection<LigneCommande> items = getItems();
+//		for(LigneCommande item : items){
+//		nb += item.getQuantite();
+//		}
+//		return nb;
+		return items.size();
 	}
 
 	/**
