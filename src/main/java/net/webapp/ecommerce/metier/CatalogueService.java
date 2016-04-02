@@ -1,19 +1,23 @@
-package net.webapp.ecommerce.services;
+package net.webapp.ecommerce.metier;
 
 import java.util.List;
 
-import net.webapp.ecommerce.modeles.Categorie;
-import net.webapp.ecommerce.modeles.Client;
-import net.webapp.ecommerce.modeles.Commande;
-import net.webapp.ecommerce.modeles.Panier;
-import net.webapp.ecommerce.modeles.Produit;
+import net.webapp.ecommerce.entites.Categorie;
+import net.webapp.ecommerce.entites.Client;
+import net.webapp.ecommerce.entites.Commande;
+import net.webapp.ecommerce.entites.Produit;
+import net.webapp.ecommerce.web.modeles.Panier;
 
-public interface InternauteService {
+public interface CatalogueService {
 
+	
 	public List<Categorie> listCategories();
 
 	public Categorie getCategorie(Long idCat);
 
+	
+	public Produit getProduit(Long idP);
+	
 	public List<Produit> listproduits();
 
 	public List<Produit> produitsParMotCle(String mc);
@@ -22,7 +26,6 @@ public interface InternauteService {
 
 	public List<Produit> produitsSelectionnes();
 
-	public Produit getProduit(Long idP);
 
 	public Commande enregistrerCommande(Panier p, Client c);
 }

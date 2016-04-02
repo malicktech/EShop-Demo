@@ -1,4 +1,4 @@
-package net.webapp.ecommerce.services.impl;
+package net.webapp.ecommerce.metier.impl;
 
 public class InternauteServiceImpl {
 

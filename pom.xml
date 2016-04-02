@@ -1,32 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>net.webapp</groupId>
-	<artifactId>ecommerce</artifactId>
+	<artifactId>EcommerceV0</artifactId>
 	<name>ECommerceV0</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 
+
+	<!-- PROPERTIES -->
+	<!-- ============================================================================================== -->
 	<properties>
-		<java-version>1.8</java-version>
+		<java-version>1.7</java-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+
+		<maven-compiler-plugin-version>3.5.1</maven-compiler-plugin-version>
+		<maven-war-plugin-version>2.6</maven-war-plugin-version>
+		<maven-dependency-plugin-version>2.10</maven-dependency-plugin-version>
+
 		<org.springframework-version>4.2.3.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.springframework.security-version>4.0.3.RELEASE</org.springframework.security-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
-		<org.hibernate.entitymanager-version>4.3.11.Final</org.hibernate.entitymanager-version> 
+		<org.hibernate.entitymanager-version>4.3.11.Final</org.hibernate.entitymanager-version>
 		<org.hibernate.validator-version>5.2.2.Final</org.hibernate.validator-version>
 		<mysql-connector-java-version>5.1.6</mysql-connector-java-version>
 	</properties>
 
-
+	<!-- DEPENDENCIES -->
+	<!-- ============================================================================================== -->
 	<dependencies>
+
 		<!-- Spring -->
-			<!-- gestion du cycle de vie des objets de l'appli ;  gestion de l'inversion de controle/injection de dépendance -->
-	<!-- Conteneur léger :  Il prend  en charge la création d’objets, leur mise en relation par l’intermédiaire d’un fichier de configuration 
-	qui décrit les objets à fabriquer et les relations de dépendances entre ces objets.  -->
-	
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -64,13 +75,14 @@
 			<artifactId>spring-core</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
-		<dependency> <!-- AOP utilisé pour profiler le temps d'execution des fonction --> 
-		<groupId>org.springframework</groupId>
-		<artifactId>spring-aop</artifactId>
-		<version>${org.springframework-version}</version>
-	</dependency>
+		<!-- AOP utilisé pour profiler le temps d'execution des fonction -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 
-		<!-- Spring Security --> <!-- securiser les appli web -->
+		<!-- Spring Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
@@ -89,12 +101,12 @@
 
 		<!-- Hibernate -->
 		<dependency>
-			<groupId>org.hibernate</groupId>  
+			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>${org.hibernate.entitymanager-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId> 
+			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<version>${org.hibernate.validator-version}</version>
 		</dependency>
@@ -123,6 +135,28 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
+		</dependency>
+
+		<!-- Tiles 2 Dependencies -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-api</artifactId>
+			<version>2.1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>2.1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-jsp</artifactId>
+			<version>2.1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-servlet</artifactId>
+			<version>2.1.4</version>
 		</dependency>
 
 		<!-- Logging -->
@@ -169,7 +203,7 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- @Inject -->
+		<!-- jAVA @Inject API : injection via l'annotation @Resource -->
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>
@@ -177,12 +211,20 @@
 		</dependency>
 
 		<!-- Servlet -->
+		<!-- TODO : pass to servlet 3.0 -->
+		<!-- <dependency> -->
+		<!-- <groupId>javax.servlet</groupId> -->
+		<!-- <artifactId>javax.servlet-api</artifactId> -->
+		<!-- <version>3.0.1</version> -->
+		<!-- <scope>provided</scope> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -205,46 +247,55 @@
 	</dependencies>
 
 
+	<!-- BUILD -->
+	<!-- ============================================================================================== -->
 	<build>
+
+		<finalName>EcommerceV0</finalName>
+
 		<plugins>
-
-			<plugin>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
-				<configuration>
-					<additionalProjectnatures>
-						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-					</additionalProjectnatures>
-					<additionalBuildcommands>
-						<buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
-					</additionalBuildcommands>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>true</downloadJavadocs>
-				</configuration>
-			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.5.1</version>
+				<version>${maven-compiler-plugin-version}</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
 					<compilerArgument>-Xlint:all</compilerArgument>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
 				</configuration>
 			</plugin>
-
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.2.1</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>${maven-dependency-plugin-version}</version>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${maven-war-plugin-version}</version>
 				<configuration>
-					<mainClass>org.test.int1.Main</mainClass>
+					<!-- <webXml>${project.basedir}\src\main\webapp\WEB-INF\web.xml</webXml> -->
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
 				</configuration>
 			</plugin>
-
 		</plugins>
+
 	</build>
+
 </project>

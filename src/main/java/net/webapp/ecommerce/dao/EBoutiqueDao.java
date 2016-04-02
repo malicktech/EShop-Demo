@@ -2,18 +2,23 @@ package net.webapp.ecommerce.dao;
 
 import java.util.List;
 
-import net.webapp.ecommerce.modeles.Categorie;
-import net.webapp.ecommerce.modeles.Client;
-import net.webapp.ecommerce.modeles.Commande;
-import net.webapp.ecommerce.modeles.Panier;
-import net.webapp.ecommerce.modeles.Produit;
-import net.webapp.ecommerce.modeles.Role;
-import net.webapp.ecommerce.modeles.User;
+import net.webapp.ecommerce.entites.Categorie;
+import net.webapp.ecommerce.entites.Client;
+import net.webapp.ecommerce.entites.Commande;
+import net.webapp.ecommerce.entites.Produit;
+import net.webapp.ecommerce.entites.Role;
+import net.webapp.ecommerce.entites.User;
+import net.webapp.ecommerce.web.modeles.Panier;
 
-public interface ECommerceDao {
+/**
+ * 
+ * @author Malick
+ *
+ */
+public interface EBoutiqueDao {
 
 	/**
-	 * Catégories DAO
+	 * CatÃ©gories
 	 */
 	public Long ajouterCategorie(Categorie c);
 
@@ -26,10 +31,17 @@ public interface ECommerceDao {
 	public void modifierCategorie(Categorie c);
 
 	/**
-	 * Produit DAO
+	 * Produit
 	 */
 
 	public Long ajouterProduit(Produit p, Long idCat);
+
+	public void supprimerProduit(Long idP);
+
+	public void modifierProduit(Produit p);
+	
+	
+	public Produit getProduit(Long idP);
 
 	public List<Produit> listproduits();
 
@@ -38,22 +50,21 @@ public interface ECommerceDao {
 	public List<Produit> produitsParCategorie(Long idCat);
 
 	public List<Produit> produitsSelectionnes();
+	
+	
+	
 
-	public Produit getProduit(Long idP);
-
-	public void supprimerProduit(Long idP);
-
-	public void modifierProduit(Produit p);
 
 	/**
-	 * Users DAO
+	 * Users 
+	 * TODO move to UserDao
 	 */
 	public void ajouterUser(User u);
 
 	public void attribuerRole(Role r, Long userID);
 
 	/**
-	 * Commandes DAO
+	 * Commandes
 	 */
 
 	public Commande enregistrerCommande(Panier p, Client c);

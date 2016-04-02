@@ -1,4 +1,4 @@
-package net.webapp.ecommerce.modeles;
+package net.webapp.ecommerce.entites;
 
 import java.io.Serializable;
 

@@ -8,9 +8,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import net.webapp.ecommerce.modeles.Categorie;
-import net.webapp.ecommerce.modeles.Produit;
-import net.webapp.ecommerce.services.CategorieService;
+import net.webapp.ecommerce.entites.Categorie;
+import net.webapp.ecommerce.entites.Produit;
+import net.webapp.ecommerce.metier.CategorieManagerService;
+import net.webapp.ecommerce.metier.ProduitManagerService;
 
 public class TestDao {
 
@@ -24,7 +25,7 @@ public class TestDao {
 	@Test
 	public void testCategorie() {
 		try {
-			CategorieService service = (CategorieService) context.getBean("service");
+			CategorieManagerService service = (CategorieManagerService) context.getBean("service");
 
 			List<Categorie> cats1 = service.listCategories();
 
@@ -44,7 +45,7 @@ public class TestDao {
 	@Test
 	public void testProduit() {
 		try {
-			CategorieService service = (CategorieService) context.getBean("service");
+			ProduitManagerService service = (ProduitManagerService) context.getBean("service");
 
 			List<Produit> prods1 = service.listproduits();
 

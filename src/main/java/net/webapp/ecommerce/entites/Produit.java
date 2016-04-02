@@ -1,4 +1,4 @@
-package net.webapp.ecommerce.modeles;
+package net.webapp.ecommerce.entites;
 
 import java.io.Serializable;
 
@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Produit implements Serializable {
 
@@ -20,8 +22,7 @@ public class Produit implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProduit;
 
-	@Column(nullable = false)
-	@Size(min = 4, max = 50)
+	@NotEmpty
 	private String designation;
 
 	private String description;
@@ -31,14 +32,14 @@ public class Produit implements Serializable {
 
 	private String photo;
 
-	/** Quantité en Stock du produit */
+	/** QuantitÃ© en Stock */
 	@Column(nullable = false)
 	private int quantite;
 
 	private boolean selected;
 
 	@ManyToOne
-	@JoinColumn(name = "idCategorie")
+	@JoinColumn(name = "id_Categorie")
 	private Categorie categorie;
 
 	// constructor

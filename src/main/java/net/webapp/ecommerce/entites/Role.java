@@ -1,4 +1,4 @@
-package net.webapp.ecommerce.modeles;
+package net.webapp.ecommerce.entites;
 
 import java.io.Serializable;
 
@@ -16,9 +16,10 @@ public class Role implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idRole;
+	@Column(name = "id_role")
+	private int id;
 
-	@Column(nullable = false)
+	@Column(name = "role_name", nullable = false)
 	@Size(min = 1, max = 10)
 	private String roleName;
 
@@ -36,11 +37,11 @@ public class Role implements Serializable {
 	// getters and setters
 
 	public int getIdRole() {
-		return idRole;
+		return id;
 	}
 
 	public void setIdRole(int idRole) {
-		this.idRole = idRole;
+		this.id = idRole;
 	}
 
 	public String getRoleName() {

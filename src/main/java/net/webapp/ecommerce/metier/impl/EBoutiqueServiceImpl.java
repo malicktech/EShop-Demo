@@ -1,32 +1,31 @@
-package net.webapp.ecommerce.services.impl;
+package net.webapp.ecommerce.metier.impl;
 
 import java.util.List;
 
 import javax.transaction.Transactional;
 
-import net.webapp.ecommerce.dao.ECommerceDao;
-import net.webapp.ecommerce.modeles.Categorie;
-import net.webapp.ecommerce.modeles.Client;
-import net.webapp.ecommerce.modeles.Commande;
-import net.webapp.ecommerce.modeles.Panier;
-import net.webapp.ecommerce.modeles.Produit;
-import net.webapp.ecommerce.modeles.Role;
-import net.webapp.ecommerce.modeles.User;
-import net.webapp.ecommerce.services.CategorieService;
+import net.webapp.ecommerce.dao.EBoutiqueDao;
+import net.webapp.ecommerce.entites.Categorie;
+import net.webapp.ecommerce.entites.Client;
+import net.webapp.ecommerce.entites.Commande;
+import net.webapp.ecommerce.entites.Produit;
+import net.webapp.ecommerce.entites.Role;
+import net.webapp.ecommerce.entites.User;
+import net.webapp.ecommerce.metier.CategorieManagerService;
+import net.webapp.ecommerce.metier.ProduitManagerService;
+import net.webapp.ecommerce.metier.UserService;
+import net.webapp.ecommerce.web.modeles.Panier;
 
-// déclare toute les méthode transactionel
 @Transactional
-public class EcommerceServiceImpl implements CategorieService {
+public class EBoutiqueServiceImpl implements CategorieManagerService, ProduitManagerService, UserService {
 
-	// injection dépendance via setters, ou utiliser annotation autowire
-
-	private ECommerceDao dao;
-
-	public void setDao(ECommerceDao dao) {
+	// injection dÃ©pendance via setters 
+	// ou utiliser annotation autowire
+	private EBoutiqueDao dao;	
+	public void setDao(EBoutiqueDao dao) {
 		this.dao = dao;
 	}
 
-	// method implement
 
 	/**
 	 * PRODUIT

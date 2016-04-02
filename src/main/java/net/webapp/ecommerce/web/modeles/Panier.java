@@ -1,9 +1,12 @@
-package net.webapp.ecommerce.modeles;
+package net.webapp.ecommerce.web.modeles;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+
+import net.webapp.ecommerce.entites.LigneCommande;
+import net.webapp.ecommerce.entites.Produit;
 
 public class Panier implements Serializable {
 
@@ -11,14 +14,14 @@ public class Panier implements Serializable {
 
 	private Map<Long, LigneCommande> items = new HashMap<Long, LigneCommande>();
 
-	// methodes utilitaireS
+	/* methodes utilitaireS */
 
 	/**
 	 * Ajouter un produit
 	 */
 	public void addItem(Produit p, int quantite) {
 		LigneCommande lc = items.get(p.getIdProduit());
-		if (lc == null) {
+		if (lc != null) {
 			LigneCommande article = new LigneCommande();
 			article.setProduit(p);
 			article.setQuantite(quantite);
@@ -27,6 +30,8 @@ public class Panier implements Serializable {
 		} else {
 			lc.setQuantite(lc.getQuantite() + quantite);
 		}
+		// TODO test ligneComlande non sérializable comme article panier
+
 	}
 
 	/**
@@ -39,8 +44,13 @@ public class Panier implements Serializable {
 	/**
 	 * Nombre de produit
 	 */
-	public int getSize() {
-		return items.size();
+	public int getSize() {		
+		int nb=0;
+		Collection<LigneCommande> items = getItems();
+		for(LigneCommande item : items){
+		nb += item.getQuantite();
+		}
+		return nb;		
 	}
 
 	/**

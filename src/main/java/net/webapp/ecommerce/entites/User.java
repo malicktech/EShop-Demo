@@ -1,4 +1,4 @@
-package net.webapp.ecommerce.modeles;
+package net.webapp.ecommerce.entites;
 
 import java.io.Serializable;
 import java.security.MessageDigest;
@@ -22,12 +22,12 @@ public class User implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id")
-	private Long idUser;
+	@Column(name = "id_user")
+	private Long id;
 
-	@Column(name = "user_name", nullable = false)
+	@Column(name = "username", nullable = false)
 	@Size(min = 4, max = 20)
-	private String userName;
+	private String username;
 
 	@NotEmpty
 	private String password;
@@ -35,10 +35,10 @@ public class User implements Serializable {
 	private boolean activated;
 
 	@OneToMany
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name = "id_user")
 	private Collection<Role> roles;
 
-	// constructor
+	/* constructors */
 
 	public User() {
 		super();
@@ -46,7 +46,7 @@ public class User implements Serializable {
 
 	public User(String userName, String password, boolean activated, Collection<Role> roles) {
 		super();
-		this.userName = userName;
+		this.username = userName;
 		this.password = password;
 		this.activated = activated;
 		this.roles = roles;
@@ -55,20 +55,20 @@ public class User implements Serializable {
 	// getters and setters
 
 	public Long getIdUser() {
-		return idUser;
+		return id;
 	}
 
 	public void setIdUser(Long idUser) {
-		this.idUser = idUser;
+		this.id = idUser;
 
 	}
 
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.username = userName;
 	}
 
 	public String getPassword() {

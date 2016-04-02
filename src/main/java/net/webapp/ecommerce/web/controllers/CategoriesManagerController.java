@@ -1,4 +1,4 @@
-package net.webapp.ecommerce.controllers;
+package net.webapp.ecommerce.web.controllers;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
@@ -21,15 +21,15 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.webapp.ecommerce.modeles.Categorie;
-import net.webapp.ecommerce.services.CategorieService;
+import net.webapp.ecommerce.entites.Categorie;
+import net.webapp.ecommerce.metier.CategorieManagerService;
 
 @Controller
 @RequestMapping(value = "/categorie")
-public class CategorieController implements HandlerExceptionResolver {
+public class CategoriesManagerController implements HandlerExceptionResolver {
 
 	@Autowired
-	private CategorieService categorieService;
+	private CategorieManagerService categorieService;
 
 	@RequestMapping(value = "/index")
 	public String index(Model model) {

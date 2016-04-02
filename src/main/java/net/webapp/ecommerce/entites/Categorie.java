@@ -1,4 +1,4 @@
-package net.webapp.ecommerce.modeles;
+package net.webapp.ecommerce.entites;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,20 +25,14 @@ public class Categorie implements Serializable {
 	private Long idCategorie;
 
 	// @NotEmpty // hibernate validor
-	// @Column(nullable = false) or @NotNull // JPA WAy of declaring a column to be not-null.
-
-	@Column(unique = true, nullable = false) // contrainte d’unicité et de nullité
-	@Size(min = 4, max = 20)
-	private String nomCategorie;
+	// @Column(unique = true, nullable = false) or @NotNull // JPA WAy of declaring a column to be not-null.
 
 	@NotEmpty
-	@Column(nullable = false)
-	@Size(min = 8)
+	@Size(min = 4, max = 20)
+	private String nomCategorie;
 	private String description;
-
 	@Lob
 	private byte[] photo;
-
 	private String nomPhoto;
 
 	@OneToMany(mappedBy = "categorie")

@@ -2,10 +2,15 @@ package net.webapp.ecommerce;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class TestJPA {
+public class TestJPAHibernate {
+
+	@Before
+	public void setUp() throws Exception {
+	}
 
 	@Test
 	public void test() {

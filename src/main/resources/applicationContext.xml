@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:s="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:s="http://www.springframework.org/schema/security"
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.0.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
 
 
+	<!-- BEAN / INJECTION DEPENDANCES -->
+	<!-- ============================================================================================== -->
+
+	<bean id="dao" class="net.webapp.ecommerce.dao.EBoutiqueDaoImpl"></bean>
+
+	<bean id="service" class="net.webapp.ecommerce.metier.impl.EBoutiqueServiceImpl">
+		<property name="dao" ref="dao"></property>
+	</bean>
+
 	<!-- CONFIG JPA -->
+	<!-- ============================================================================================== -->
 
 	<bean id="datasource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/ecommercev0"></property>
-		<property name="username" value="root"></property>
+		<property name="username" value="admin"></property>
 		<property name="password" value="admin"></property>
 	</bean>
-	
 
 	<bean id="persistenceUnitManager"
 		class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
@@ -42,34 +49,29 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
-
 	<context:annotation-config></context:annotation-config>
 
-	<!-- INJECTION DEPENDANCES -->
 
-	<bean id="dao" class="net.webapp.ecommerce.dao.impl.ECommerceDaoImpl"></bean>
 
-	<bean id="service" class="net.webapp.ecommerce.services.impl.EcommerceServiceImpl">
-		<property name="dao" ref="dao"></property>
-	</bean>
-	
-	
 	<!-- SPRING SECURITY -->
+	<!-- ============================================================================================== -->
+
 	<s:http>
-		<s:intercept-url pattern="/produit/**" access="produit" />
-		<s:intercept-url pattern="/categorie/**" access="ADMIN_CAT" />
-		<s:form-login login-page = "/login" default-target-url="/produit/index" authentication-failure-url="/login" />
-		<s:logout logout-success-url ="/login" />
+		<s:intercept-url pattern="/produits/**" access="ROLE_ADMIN_PROD" />
+		<s:intercept-url pattern="/categories/**" access="ROLE_ADMIN_CAT" />
+		<s:form-login login-page="/login" default-target-url="/produits/index"
+			authentication-failure-url="/login" />
+		<s:logout logout-success-url="/login" />
 	</s:http>
 	<s:authentication-manager>
 		<s:authentication-provider>
 			<s:password-encoder hash="md5"></s:password-encoder>
-				<s:jdbc-user-service data-source-ref ="datasource"
-					users-by-username-query="select user_name,password, actived from users where user_name=?"
-					authorities-by-username-query="select u.user_name, r.roleName from users u, role r where u.user_id = r.user_id and u.user_name =? " />
-				<!-- <s:user-service> <s:user name="admin1" password="admin1" authorities="ROLE_ADMIN_PROD"/> 
-					<s:user name="admin2" authorities="ROLE_ADMIN_CAT,ROLE_ADMIN_PROD" password="admin2" 
-					/> </s:user-service> -->
+			<s:jdbc-user-service data-source-ref="datasource"
+				users-by-username-query="select username, password, actived from users where user_name=?"
+				authorities-by-username-query="select u.username, r.role_name from users u, role r where u.id_user = r.id_user and u.username =? " />
+			<!-- <s:user-service> <s:user name="admin1" password="admin1" authorities="ROLE_ADMIN_PROD"/> 
+				<s:user name="admin2" authorities="ROLE_ADMIN_CAT,ROLE_ADMIN_PROD" password="admin2" 
+				/> </s:user-service> -->
 		</s:authentication-provider>
 	</s:authentication-manager>
 

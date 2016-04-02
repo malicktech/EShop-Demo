@@ -1,4 +1,4 @@
-package net.webapp.ecommerce.dao.impl;
+package net.webapp.ecommerce.dao;
 
 import java.util.List;
 
@@ -6,22 +6,26 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import net.webapp.ecommerce.dao.ECommerceDao;
-import net.webapp.ecommerce.modeles.Categorie;
-import net.webapp.ecommerce.modeles.Client;
-import net.webapp.ecommerce.modeles.Commande;
-import net.webapp.ecommerce.modeles.Panier;
-import net.webapp.ecommerce.modeles.Produit;
-import net.webapp.ecommerce.modeles.Role;
-import net.webapp.ecommerce.modeles.User;
+import net.webapp.ecommerce.entites.Categorie;
+import net.webapp.ecommerce.entites.Client;
+import net.webapp.ecommerce.entites.Commande;
+import net.webapp.ecommerce.entites.Produit;
+import net.webapp.ecommerce.entites.Role;
+import net.webapp.ecommerce.entites.User;
+import net.webapp.ecommerce.web.modeles.Panier;
 
-public class ECommerceDaoImpl implements ECommerceDao {
+/**
+ * 
+ * @author Malick
+ *
+ */
+public class EBoutiqueDaoImpl implements EBoutiqueDao {
 
 	@PersistenceContext
 	private EntityManager em;
 
 	/**
-	 * Catégories DAO
+	 * CatÃ©gories
 	 */
 
 	@Override
@@ -65,6 +69,22 @@ public class ECommerceDaoImpl implements ECommerceDao {
 	}
 
 	@Override
+	public void supprimerProduit(Long idP) {
+		Produit p = getProduit(idP);
+		em.remove(p);
+	}
+
+	@Override
+	public void modifierProduit(Produit p) {
+		em.merge(p);
+	}
+
+	@Override
+	public Produit getProduit(Long idP) {
+		return em.find(Produit.class, idP);
+	}
+
+	@Override
 	public List<Produit> listproduits() {
 		Query req = em.createQuery("select p from Produit p");
 		return req.getResultList();
@@ -88,22 +108,6 @@ public class ECommerceDaoImpl implements ECommerceDao {
 	public List<Produit> produitsSelectionnes() {
 		Query req = em.createQuery("select p from Produit p where p.selectionne=true");
 		return req.getResultList();
-	}
-
-	@Override
-	public Produit getProduit(Long idP) {
-		return em.find(Produit.class, idP);
-	}
-
-	@Override
-	public void supprimerProduit(Long idP) {
-		Produit p = getProduit(idP);
-		em.remove(p);
-	}
-
-	@Override
-	public void modifierProduit(Produit p) {
-		em.merge(p);
 	}
 
 	/**

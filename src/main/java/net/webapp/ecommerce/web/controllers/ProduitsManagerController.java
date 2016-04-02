@@ -1,4 +1,4 @@
-package net.webapp.ecommerce.controllers;
+package net.webapp.ecommerce.web.controllers;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,15 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import net.webapp.ecommerce.modeles.Produit;
-import net.webapp.ecommerce.services.ProduitService;
+import net.webapp.ecommerce.entites.Produit;
+import net.webapp.ecommerce.metier.ProduitManagerService;
 
 @Controller
 @RequestMapping(value = "/produit")
-public class ProduitController {
+public class ProduitsManagerController {
 
 	@Autowired
-	private ProduitService produitService;
+	private ProduitManagerService produitService;
 
 	@RequestMapping(value = "/index")
 	public String index(Model model) {
