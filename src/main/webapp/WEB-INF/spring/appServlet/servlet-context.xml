@@ -22,29 +22,31 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
-	<beans:bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/views/" />
-		<beans:property name="suffix" value=".jsp" />
+	<!-- <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<beans:property name="prefix" value="/WEB-INF/views/" /> <beans:property 
+		name="suffix" value=".jsp" /> </beans:bean> -->
+	<!-- Initializes the Apache Tiles CompositeView system -->
+	<beans:bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/tiles/tiles-definitions.xml</beans:value>
+<!-- 				<beans:value>/WEB-INF/views/**/views.xml</beans:value> -->
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	<!-- Tiles View Resolver Configuration -->
+	<beans:bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass">
+			<beans:value>org.springframework.web.servlet.view.tiles3.TilesView
+			</beans:value>
+		</beans:property>
+		<beans:property name="order" value="0" />
 	</beans:bean>
 
-	<!-- Tiles View Resolver Configuration -->
-	<!-- <beans:bean id="tilesViewresolver" -->
-	<!-- class="org.springframework.web.servlet.view.UrlBasedViewResolver"> -->
-	<!-- <beans:property name="viewClass" -->
-	<!-- value="org.springframework.web.servlet.view.tiles2.TilesView"> -->
-	<!-- </beans:property> -->
-	<!-- </beans:bean> -->
-	
-	<!-- Initializes the Apache Tiles CompositeView system -->
-<!-- 	<beans:bean id="tilesConfigurer" -->
-<!-- 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer"> -->
-<!-- 		<beans:property name="definitions"> -->
-<!-- 			<beans:list> -->
-<!-- 			<beans:value>/WEB-INF/tiles/tiles-definitions.xml</beans:value> -->
-<!-- 			</beans:list> -->
-<!-- 		</beans:property> -->
-<!-- 	</beans:bean> -->
+
+
 
 	<!-- Configuration Upload -->
 	<beans:bean name="multipartResolver"

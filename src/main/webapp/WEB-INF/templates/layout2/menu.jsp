@@ -1,9 +1,12 @@
-<%@tagli buri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <table>
-	<c:forEach items=" ${categories }" var="cat">
+	<c:forEach var="cat" items="${categories}">
 		<tr>
-			<td><a href="produitsParCat?idCat=${cat.idCategorie}">
-					${cat.nomCategorie} </a></td>
+			<td>
+				<a class="btn btn-default navbar-btn" href="produitsParCat?idCat=${cat.idCategorie}">${cat.nomCategorie}</a>
+			</td>
 		</tr>
 	</c:forEach>
 </table>

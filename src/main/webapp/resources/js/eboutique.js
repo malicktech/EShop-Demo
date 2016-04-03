@@ -1,4 +1,4 @@
-functionaffichePanier()
+function affichePanier()
 {
 	$("#panier").toggle();
 }

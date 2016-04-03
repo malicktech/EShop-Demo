@@ -57,7 +57,7 @@
 	<!-- ============================================================================================== -->
 
 	<s:http use-expressions="false">
-		<s:intercept-url pattern="/produits/**" access="ROLE_ADMIN_PROD" />
+<!-- 		<s:intercept-url pattern="/produits/**" access="ROLE_ADMIN_PROD" /> -->
 <!-- 		<s:intercept-url pattern="/categories/**" access="ROLE_ADMIN_CAT" /> -->
 		<s:form-login login-page="/login" default-target-url="/produits/index"
 			authentication-failure-url="/login" />

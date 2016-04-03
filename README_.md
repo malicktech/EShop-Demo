@@ -29,6 +29,8 @@ inspired by Mr Youssfi Video Tutoriel : https://youtu.be/7x6GhIqq2pM
 
 ### Ecommerce V1
 
+http://www.techyari.in/2015/06/spring-mvc-and-apache-tiles-3-integration-tutorial-with-example.html
+
 * saerch : elastic search (lucene)
 * validation : JPA validation
 
