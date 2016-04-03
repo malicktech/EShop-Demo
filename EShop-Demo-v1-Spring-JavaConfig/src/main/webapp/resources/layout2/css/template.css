@@ -1,0 +1,100 @@
+body {
+	font-family: sans-serif;
+	font-size: 12px;
+}
+
+.cadre {
+	margin: 0;
+	border: 1px dotted gray;
+	margin-top: 10px;
+	padding: 10px;
+}
+
+#menu {
+	width: 200px;
+	min-height: 400px;
+	background: #FFF;
+	float: left;
+	margin-left: 0;
+	margin-top: 10px;
+	overflow: auto;
+}
+
+#content {
+	margin: 0px;
+}
+
+#body {
+	min-height: 400px;
+	background: #FFF;
+	overflow: auto;
+}
+
+#footer {
+	background: #FFF;
+}
+
+.table1 {
+	
+}
+
+.table1th {
+	padding: 5px;
+	background: pink;
+	border: 1px dotted gray;
+}
+
+.table1td {
+	border: 1px dotted gray;
+	padding: 5px;
+	background: white;
+}
+
+.errors {
+	color: red;
+}
+
+.ficheProduit {
+	border: 1px dotted gray;
+	float: left;
+	height: 300px;
+	padding: 10px;
+	margin: 10px;
+}
+
+#panier {
+	border: 1px dotted gray;
+	padding: 10px;
+	margin: 10px;
+	overflow: auto;
+}
+
+#paniertable th {
+	border: 1px dotted gray;
+	background: pink;
+	padding: 5px;
+}
+
+#paniertable td {
+	border: 1px dotted gray;
+	background: white;
+	padding: 5px;
+}
+
+#headertable {
+	width: 100%;
+}
+
+#headertd.pan {
+	text-align: right;
+	width: 200px;
+}
+
+#headertd.pan div {
+	border: 1px dotted gray;
+	border-radius: 5px;
+}
+
+#imgPanier {
+	cursor: pointer;
+}

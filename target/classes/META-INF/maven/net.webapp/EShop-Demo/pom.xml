@@ -8,12 +8,10 @@
 	     <groupId>net.webapp</groupId>
     <artifactId>EShop-Demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
 	
 	
 	<modules>
-		<module>EShop-Demo-v0-Spring-XMLConfig</module>
-		<module>EShop-Demo-v1-Spring-JavaConfig</module>
+		<module>EShop-Demo-Spring-XMLConfig-JPA-JSP</module>
 	</modules>
 	
 	
