@@ -2,25 +2,28 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 
 <div>
+	
 	<a href="<c:url value="/j_spring_security_logout" />">Logout</a>
-	<%-- 	<div class="errors">${exception}</div> --%>
-	<forma ction="chercherProduits" action="chercherProduits">
-	<table>
-		<tr>
-			<td><input type="text" name="mc" value=" ${mc}"></td>
-			<td><input type="submit" value=" Chercher"></td>
-		</tr>
-	</table>
+	
+	<div class="errors">${exception}</div>
+	
+	<form action="chercherProduits">
+		<table>
+			<tr>
+				<td><input type="text" name="mc" value=" ${mc}"></td>
+				<td><input type="submit" value="Chercher"></td>
+			</tr>
+		</table>
 	</form>
 </div>
 
-<div >
+<div>
 	<f:form modelAttribute="produit" action="saveProd" method="post"
 		enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>ID Produit</td>
-				<td><f:input type= "hidden" path="idProduit" />${produit.idProduit}</td>
+				<td><f:input type="hidden" path="idProduit" />${produit.idProduit}</td>
 				<td><f:errors path="idProduit" cssClass="errors"></f:errors></td>
 			</tr>
 			<tr>

@@ -23,10 +23,13 @@
 		<maven-compiler-plugin-version>3.5.1</maven-compiler-plugin-version>
 		<maven-war-plugin-version>2.6</maven-war-plugin-version>
 		<maven-dependency-plugin-version>2.10</maven-dependency-plugin-version>
+		
+		<tiles-version>3.0.5</tiles-version>
 
-		<org.springframework-version>4.2.3.RELEASE</org.springframework-version>
+		<org.springframework-version>4.2.5.RELEASE</org.springframework-version>
+		<org.springframework.security-version>4.0.4.RELEASE</org.springframework.security-version>
+
 		<org.aspectj-version>1.6.10</org.aspectj-version>
-		<org.springframework.security-version>4.0.3.RELEASE</org.springframework.security-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 		<org.hibernate.entitymanager-version>4.3.11.Final</org.hibernate.entitymanager-version>
 		<org.hibernate.validator-version>5.2.2.Final</org.hibernate.validator-version>
@@ -141,22 +144,27 @@
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-api</artifactId>
-			<version>2.1.4</version>
+			<version>${tiles-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-core</artifactId>
-			<version>2.1.4</version>
+			<version>${tiles-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-jsp</artifactId>
-			<version>2.1.4</version>
+			<version>${tiles-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
 			<artifactId>tiles-servlet</artifactId>
-			<version>2.1.4</version>
+			<version>${tiles-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-template</artifactId>
+			<version>${tiles-version}</version>
 		</dependency>
 
 		<!-- Logging -->

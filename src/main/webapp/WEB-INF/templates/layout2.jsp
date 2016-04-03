@@ -9,15 +9,13 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css"
 	href=" <%=request.getContextPath()%>/resources/layout2/css/template.css" />
-<script type="text/javascript"
-	src=" <%=request.getContextPath()%>/resources/jquery/jquery-1.12.2.js"></script>
-<script type=" "
-	text/javascript"src="<%=request.getContextPath()%>/resources/js/eboutique.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/jquery/jquery-1.12.2.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/eboutique.js"></script>
 </head>
 <body>
 	<div id="header" class="cadre">
-		<tiles:insertAttributename= "header">
-			</tiles:insertAttribute>
+		<tiles:insertAttribute name="header">
+		</tiles:insertAttribute>
 	</div>
 	<div id="content" class="cadre">
 		<div id="menu" class="cadre">

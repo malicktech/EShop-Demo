@@ -2,14 +2,14 @@
 	<table>
 		<tr>
 			<td><img alt=""
-				src=" <%=request.getContextPath()%>/resources/images/panier.jpg"></td>
+				src=" <%=request.getContextPath()%>/resources/images/Shopping_cart_icon.svg.png"></td>
 			<td></td>
 			<td class="pan">
 				<div>
 					<table>
 						<tr>
 							<td colspan="2"><img id="imgPanier"
-								src=" <%=request.getContextPath()%>/resources/images/panier.jpg"
+								src=" <%=request.getContextPath()%>/resources/images/Shopping_cart_icon.svg.png"
 								onclick="affichePanier()"></td>
 						</tr>
 						<tr>

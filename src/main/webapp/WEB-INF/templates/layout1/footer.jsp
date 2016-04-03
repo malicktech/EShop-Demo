@@ -1,1 +1,5 @@
-<h1>FOOTER</h1>
+<center>
+
+ <b>© 2015 Malick - All Rights Reserved</b>
+
+</center>

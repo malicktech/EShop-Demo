@@ -4,6 +4,7 @@
 
 My repository for experimental build of e-commerce Online shopping websites with different technologies 
 
+it's just to note down some points to refer later if required, just for Myself. 
 
 ## Modules project
 
@@ -19,9 +20,9 @@ My repository for experimental build of e-commerce Online shopping websites with
 * conf spring : XML
 * Unit Test : JUnit 4
 * log : Slf4J (Log4j) 
-* DAO : JPA / Hibernate / hibernate validation
+* DAO : JPA + Hibernate + hibernate validation
 * Security	: Spring Security
-* UI : JSP / JSTL / Apache Tiles
+* UI : JSP + JSTL + Apache Tiles
 * SGBD : MySQL
 
 inspired by Mr Youssfi Video Tutoriel : https://youtu.be/7x6GhIqq2pM

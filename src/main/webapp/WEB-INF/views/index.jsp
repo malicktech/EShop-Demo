@@ -1,8 +1,12 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 
 <!-- PANIER -->
 
-<div id="panier" style="display: none">
+
+	
+<div id="panier" style="display:none">
 	<c:if test=" ${panier.size!=0}">
 		<table>
 			<tr>
@@ -30,19 +34,15 @@
 </div>
 
 <!-- PRODUITS -->
-
 <div id="catalogueProduits">
-	<c:forEach items=" ${produits}" var="p">
+		<c:forEach items="${produits}" var="p">
 		<div class="ficheProduit">
 			<table>
-				<tr>
-					<td colspan="2"><img alt=""
-						src="photoProduit?idP=${p.idProduit }"></td>
-				</tr>
-				<tr><td>Désignation :</td><td>${p.designation }</td></tr>
+				<tr><td colspan="2"><img alt="" src="photoProduit?idP=${p.idProduit}" ></td></tr>
+				<tr><td>Désignation :</td><td>${p.designation}</td></tr>
 				<tr><td>Prix :</td><td>${p.prix}</td></tr>
 				<tr><td>Stock:</td><td>${p.quantite}</td></tr>
-				<tr><td>${p.description}</td></tr>
+				<tr><td>${p.designation}</td></tr>
 				<tr>
 					<td colspan="2">
 						<form action="ajouterAuPanier">
@@ -56,3 +56,4 @@
 		</div>
 	</c:forEach>
 </div>
+

@@ -109,7 +109,7 @@ public class EBoutiqueDaoImpl implements EBoutiqueDao {
 
 	@Override
 	public List<Produit> produitsSelectionnes() {
-		Query req = em.createQuery("select p from Produit p where p.selectionne=true");
+		Query req = em.createQuery("select p from Produit p where p.selected=true");
 		return req.getResultList();
 	}
 

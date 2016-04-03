@@ -34,6 +34,7 @@ public class User implements Serializable {
 	@NotEmpty
 	private String password;
 
+	@Column(name = "actived")
 	private boolean activated;
 
 	@OneToMany

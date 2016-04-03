@@ -3,11 +3,14 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+<!-- 	<welcome-file-list> -->
+<!-- 		<welcome-file>index.jsp</welcome-file> -->
+<!-- 	</welcome-file-list> -->
+
 
 	<!-- Spring Security -->
 	<!-- filtre DelegatingFilterProxy : Toutes les requêtes HTTP passent par 
 		ce filtre -->
-
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -43,6 +46,7 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
 	<error-page>
 		<error-code>403</error-code>
 		<location>/login</location>

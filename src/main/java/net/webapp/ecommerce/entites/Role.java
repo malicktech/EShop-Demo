@@ -20,7 +20,7 @@ public class Role implements Serializable {
 	private int id;
 
 	@Column(name = "role_name", nullable = false)
-	@Size(min = 1, max = 10)
+	// @Size(min = 1, max = 10)
 	private String roleName;
 
 	// constructor

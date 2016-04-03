@@ -2,8 +2,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="f"%>
 
 
-	<ah ref="<c:url value="/j_spring_security_logout"/>"> Logout</a>
-<%-- 	<div class="errors">${exeption}</div> --%>
+	<a href=" <c:url value="/j_spring_security_logout"/> "> Logout</a>
+	<div class="errors">${exeption}</div>
 
 		<f:form modelAttribute="categorie" action="save" method="post"
 			enctype="multipart/form-data">

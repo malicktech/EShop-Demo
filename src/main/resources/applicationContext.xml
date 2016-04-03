@@ -11,11 +11,11 @@
 	<!-- BEAN / INJECTION DEPENDANCES -->
 	<!-- ============================================================================================== -->
 
-<!-- 	<bean id="dao" class="net.webapp.ecommerce.dao.EBoutiqueDaoImpl"></bean> -->
+	<bean id="dao" class="net.webapp.ecommerce.dao.EBoutiqueDaoImpl"></bean>
 
-<!-- 	<bean id="service" class="net.webapp.ecommerce.metier.impl.EBoutiqueServiceImpl"> -->
-<!-- 		<property name="dao" ref="dao"></property> -->
-<!-- 	</bean> -->
+	<bean id="service" class="net.webapp.ecommerce.metier.impl.EBoutiqueServiceImpl">
+		<property name="dao" ref="dao"></property>
+	</bean>
 
 	<!-- CONFIG JPA -->
 	<!-- ============================================================================================== -->
@@ -56,9 +56,9 @@
 	<!-- SPRING SECURITY -->
 	<!-- ============================================================================================== -->
 
-	<s:http>
+	<s:http use-expressions="false">
 		<s:intercept-url pattern="/produits/**" access="ROLE_ADMIN_PROD" />
-		<s:intercept-url pattern="/categories/**" access="ROLE_ADMIN_CAT" />
+<!-- 		<s:intercept-url pattern="/categories/**" access="ROLE_ADMIN_CAT" /> -->
 		<s:form-login login-page="/login" default-target-url="/produits/index"
 			authentication-failure-url="/login" />
 		<s:logout logout-success-url="/login" />
@@ -66,12 +66,20 @@
 	<s:authentication-manager>
 		<s:authentication-provider>
 			<s:password-encoder hash="md5"></s:password-encoder>
+
 			<s:jdbc-user-service data-source-ref="datasource"
-				users-by-username-query="select username, password, actived from users where user_name=?"
-				authorities-by-username-query="select u.username, r.role_name from users u, role r where u.id_user = r.id_user and u.username =? " />
-			<!-- <s:user-service> <s:user name="admin1" password="admin1" authorities="ROLE_ADMIN_PROD"/> 
-				<s:user name="admin2" authorities="ROLE_ADMIN_CAT,ROLE_ADMIN_PROD" password="admin2" 
-				/> </s:user-service> -->
+				users-by-username-query="select username, password, actived from 
+ 				users where user_name=?"
+				authorities-by-username-query="select u.username, r.role_name from 
+				users u, role r where u.id_user = r.id_user and u.username =? " />
+			<!--  
+			<s:user-service>
+				<s:user name="admin1" password="admin1" authorities="ROLE_ADMIN_PROD" />
+				<s:user name="admin2" password="admin2"
+					authorities="ROLE_ADMIN_CAT, ROLE_ADMIN_PROD" />
+			</s:user-service>
+			-->
+
 		</s:authentication-provider>
 	</s:authentication-manager>
 
