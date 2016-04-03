@@ -38,12 +38,12 @@
 
 	<div class="row">
 		<c:forEach items="${produits}" var="p">
+		
 			<div class="col-sm-6 col-md-4">
 				<div class="thumbnail">
-					<img alt="" src="photoProduit?idP=${p.idProduit}">
+					<img style="height: 150px" alt="" src="photoProduit?idP=${p.idProduit}">
 					<div class="caption">
 						<h3>${p.designation}</h3>
-						<p>Désignation : ${p.designation}</p>
 						<p>Prix : ${p.prix}</p>
 						<p>Stock: ${p.quantite}</p>
 						<p>
@@ -57,6 +57,7 @@
 					</div>
 				</div>
 			</div>
+			
 		</c:forEach>
 	</div>
 </div>

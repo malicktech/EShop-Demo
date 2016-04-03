@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" "log4j.dtd"> -->
+<!-- <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"> -->
+<configuration>
+	<!-- Appenders -->
+	<appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/tmp/logs/spr-data.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>/tmp/logs/spr-data.%d{yyyy-MM-dd}.log</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+		</encoder>
+	</appender>
+     
+     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+	    <encoder>
+	        <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+	    </encoder>
+<!-- 	    <filter class="ch.qos.logback.core.filter.EvaluatorFilter"> -->
+<!-- 	        <evaluator> -->
+<!-- 	            <expression>return message.toLowerCase().contains("org.hibernate.type") &amp;&amp; -->
+<!-- 	                logger.startsWith("returning");</expression> -->
+<!-- 	        </evaluator> -->
+<!-- 	        <OnMismatch>NEUTRAL</OnMismatch> -->
+<!-- 	        <OnMatch>DENY</OnMatch> -->
+<!-- 	    </filter> -->
+	</appender>
+	
+	<!-- Application Loggers -->
+	<logger name="net.webapp.springtest">
+		<level value="info" />
+	</logger>
+	
+	<!-- 3rdparty Loggers -->
+	<logger name="org.springframework.core">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.beans">
+		<level value="info" />
+	</logger>
+	
+	<logger name="org.springframework.context">
+		<level value="info" />
+	</logger>
+
+	<logger name="org.springframework.web">
+		<level value="info" />
+	</logger>
+
+	<!-- Root Logger -->
+	<root>
+		<priority value="warn" />
+		<appender-ref ref="console" />
+		<appender-ref ref="rollingFile" />
+	</root>
+	
+</configuration>
