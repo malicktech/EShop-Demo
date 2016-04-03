@@ -7,19 +7,24 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import net.webapp.ecommerce.entites.Categorie;
-import net.webapp.ecommerce.entites.Client;
-import net.webapp.ecommerce.entites.Commande;
-import net.webapp.ecommerce.entites.LigneCommande;
-import net.webapp.ecommerce.entites.Produit;
-import net.webapp.ecommerce.entites.Role;
-import net.webapp.ecommerce.entites.User;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Repository;
+
+import net.webapp.ecommerce.entities.Categorie;
+import net.webapp.ecommerce.entities.Client;
+import net.webapp.ecommerce.entities.Commande;
+import net.webapp.ecommerce.entities.LigneCommande;
+import net.webapp.ecommerce.entities.Produit;
+import net.webapp.ecommerce.entities.Role;
+import net.webapp.ecommerce.entities.User;
 import net.webapp.ecommerce.web.modeles.Panier;
 /**
  * 
  * @author Malick
  *
  */
+@Repository("eBoutiqueDao")
+// @Scope("prototype")
 public class EBoutiqueDaoImpl implements EBoutiqueDao {
 
 	@PersistenceContext

@@ -1,4 +1,4 @@
-package net.webapp.ecommerce.entites;
+package net.webapp.ecommerce.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;

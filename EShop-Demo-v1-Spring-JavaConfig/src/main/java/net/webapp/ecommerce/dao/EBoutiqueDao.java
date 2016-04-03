@@ -2,12 +2,12 @@ package net.webapp.ecommerce.dao;
 
 import java.util.List;
 
-import net.webapp.ecommerce.entites.Categorie;
-import net.webapp.ecommerce.entites.Client;
-import net.webapp.ecommerce.entites.Commande;
-import net.webapp.ecommerce.entites.Produit;
-import net.webapp.ecommerce.entites.Role;
-import net.webapp.ecommerce.entites.User;
+import net.webapp.ecommerce.entities.Categorie;
+import net.webapp.ecommerce.entities.Client;
+import net.webapp.ecommerce.entities.Commande;
+import net.webapp.ecommerce.entities.Produit;
+import net.webapp.ecommerce.entities.Role;
+import net.webapp.ecommerce.entities.User;
 import net.webapp.ecommerce.web.modeles.Panier;
 
 /**

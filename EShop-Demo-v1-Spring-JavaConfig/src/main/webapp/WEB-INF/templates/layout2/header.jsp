@@ -8,9 +8,9 @@
 				<div>
 					<table>
 						<tr>
-							<td colspan="2"><img id="imgPanier"
-								src=" <%=request.getContextPath()%>/resources/images/Shopping_cart_icon.svg.png"
-								onclick="affichePanier()"></td>
+							<td colspan="2">
+							<a href="#" onclick="affichePanier()"><i class="fa fa-shopping-cart">Panier</i></a>
+						</td>
 						</tr>
 						<tr>
 							<td>Nombre de produits :</td>

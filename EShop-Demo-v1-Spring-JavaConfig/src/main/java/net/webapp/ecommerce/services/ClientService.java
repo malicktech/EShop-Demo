@@ -1,4 +1,4 @@
-package net.webapp.ecommerce.metier;
+package net.webapp.ecommerce.services;
 
 public interface ClientService {
 

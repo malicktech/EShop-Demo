@@ -1,11 +1,11 @@
-package net.webapp.ecommerce.metier;
+package net.webapp.ecommerce.services;
 
 import java.util.List;
 
-import net.webapp.ecommerce.entites.Categorie;
-import net.webapp.ecommerce.entites.Client;
-import net.webapp.ecommerce.entites.Commande;
-import net.webapp.ecommerce.entites.Produit;
+import net.webapp.ecommerce.entities.Categorie;
+import net.webapp.ecommerce.entities.Client;
+import net.webapp.ecommerce.entities.Commande;
+import net.webapp.ecommerce.entities.Produit;
 import net.webapp.ecommerce.web.modeles.Panier;
 
 public interface CatalogueService {

@@ -1,6 +1,7 @@
 package net.webapp.ecommerce.web.controllers;
 
 import java.io.FileInputStream;
+import java.io.InputStream;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import net.webapp.ecommerce.entites.Produit;
-import net.webapp.ecommerce.metier.CatalogueService;
+import net.webapp.ecommerce.entities.Produit;
+import net.webapp.ecommerce.services.CatalogueService;
 import net.webapp.ecommerce.web.modeles.Panier;
 
 @Controller
@@ -51,8 +52,14 @@ public class EBoutiqueController {
 	@RequestMapping(value = "/photoProduit", produces = MediaType.IMAGE_JPEG_VALUE)
 	public byte[] photoProd(@RequestParam("idP") Long idP) throws Exception {
 		Produit p = metier.getProduit(idP);
-		String path = System.getProperty("java.io.tmpdir") + "/" + p.getIdProduit();
-		return IOUtils.toByteArray(new FileInputStream(path));
+		
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+		// FileInputStream input = classLoader.getResourceAsStream("src/main/resources/ids.txt");
+
+		
+		// String path = System.getProperty("java.io.tmpdir") + "/" + p.getIdProduit();
+		String pathToProductImage = "resources/images/product/" + p.getPhoto();	
+		return IOUtils.toByteArray(new FileInputStream(pathToProductImage));
 	}
 
 	@RequestMapping("/ajouterAuPanier")

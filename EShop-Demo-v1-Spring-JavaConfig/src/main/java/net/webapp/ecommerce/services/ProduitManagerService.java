@@ -1,6 +1,6 @@
-package net.webapp.ecommerce.metier;
+package net.webapp.ecommerce.services;
 
-import net.webapp.ecommerce.entites.Produit;
+import net.webapp.ecommerce.entities.Produit;
 
 public interface ProduitManagerService extends CatalogueService {
 

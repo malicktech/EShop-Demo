@@ -8,10 +8,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import net.webapp.ecommerce.entites.Categorie;
-import net.webapp.ecommerce.entites.Produit;
-import net.webapp.ecommerce.metier.CategorieManagerService;
-import net.webapp.ecommerce.metier.ProduitManagerService;
+import net.webapp.ecommerce.entities.Categorie;
+import net.webapp.ecommerce.entities.Produit;
+import net.webapp.ecommerce.services.CategorieManagerService;
+import net.webapp.ecommerce.services.ProduitManagerService;
 
 public class TestDao {
 

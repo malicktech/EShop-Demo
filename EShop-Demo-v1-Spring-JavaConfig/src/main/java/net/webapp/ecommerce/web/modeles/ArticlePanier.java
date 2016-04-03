@@ -1,6 +1,6 @@
 package net.webapp.ecommerce.web.modeles;
 
-import net.webapp.ecommerce.entites.Produit;
+import net.webapp.ecommerce.entities.Produit;
 
 public class ArticlePanier {
 

@@ -5,8 +5,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.webapp.ecommerce.entites.LigneCommande;
-import net.webapp.ecommerce.entites.Produit;
+import net.webapp.ecommerce.entities.LigneCommande;
+import net.webapp.ecommerce.entities.Produit;
 
 public class Panier implements Serializable {
 

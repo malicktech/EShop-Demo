@@ -5,8 +5,8 @@
 <!-- PANIER -->
 
 
-	
-<div id="panier" style="display:none">
+
+<div id="panier" style="display: none">
 	<c:if test=" ${panier.size!=0}">
 		<table>
 			<tr>
@@ -35,25 +35,29 @@
 
 <!-- PRODUITS -->
 <div id="catalogueProduits">
+
+	<div class="row">
 		<c:forEach items="${produits}" var="p">
-		<div class="ficheProduit">
-			<table>
-				<tr><td colspan="2"><img alt="" src="photoProduit?idP=${p.idProduit}" ></td></tr>
-				<tr><td>Désignation :</td><td>${p.designation}</td></tr>
-				<tr><td>Prix :</td><td>${p.prix}</td></tr>
-				<tr><td>Stock:</td><td>${p.quantite}</td></tr>
-				<tr><td>${p.designation}</td></tr>
-				<tr>
-					<td colspan="2">
+			<div class="col-sm-6 col-md-4">
+				<div class="thumbnail">
+					<img alt="" src="photoProduit?idP=${p.idProduit}">
+					<div class="caption">
+						<h3>${p.designation}</h3>
+						<p>Désignation : ${p.designation}</p>
+						<p>Prix : ${p.prix}</p>
+						<p>Stock: ${p.quantite}</p>
+						<p>
 						<form action="ajouterAuPanier">
-							<input type="hidden" value="${p.idProduit}" name="idProduit">
-							<input type="text" value="1" name="quantite">
-							<input type="submit" value="Ajouter au panier">
-						</form>
-					<td>
-				</tr>
-			</table>
-		</div>
-	</c:forEach>
+						<input type="hidden" value="${p.idProduit}" name="idProduit">
+						<input type="text" class="form-control" value="1" name="quantite">
+						<input type="submit" class="btn btn-primary"
+							value="Ajouter au panier">
+							</p>
+					</form>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
 </div>
 

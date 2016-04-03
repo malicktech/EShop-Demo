@@ -1,7 +1,7 @@
-package net.webapp.ecommerce.metier;
+package net.webapp.ecommerce.services;
 
-import net.webapp.ecommerce.entites.Role;
-import net.webapp.ecommerce.entites.User;
+import net.webapp.ecommerce.entities.Role;
+import net.webapp.ecommerce.entities.User;
 
 public interface UserService {
 

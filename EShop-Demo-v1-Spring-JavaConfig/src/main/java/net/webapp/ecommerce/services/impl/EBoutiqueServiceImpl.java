@@ -1,31 +1,39 @@
-package net.webapp.ecommerce.metier.impl;
+package net.webapp.ecommerce.services.impl;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import net.webapp.ecommerce.dao.EBoutiqueDao;
-import net.webapp.ecommerce.entites.Categorie;
-import net.webapp.ecommerce.entites.Client;
-import net.webapp.ecommerce.entites.Commande;
-import net.webapp.ecommerce.entites.Produit;
-import net.webapp.ecommerce.entites.Role;
-import net.webapp.ecommerce.entites.User;
-import net.webapp.ecommerce.metier.CategorieManagerService;
-import net.webapp.ecommerce.metier.ProduitManagerService;
-import net.webapp.ecommerce.metier.UserService;
+import net.webapp.ecommerce.entities.Categorie;
+import net.webapp.ecommerce.entities.Client;
+import net.webapp.ecommerce.entities.Commande;
+import net.webapp.ecommerce.entities.Produit;
+import net.webapp.ecommerce.entities.Role;
+import net.webapp.ecommerce.entities.User;
+import net.webapp.ecommerce.services.CategorieManagerService;
+import net.webapp.ecommerce.services.ProduitManagerService;
+import net.webapp.ecommerce.services.UserService;
 import net.webapp.ecommerce.web.modeles.Panier;
 
+@Service("eBoutiqueService")
 @Transactional
 public class EBoutiqueServiceImpl implements CategorieManagerService, ProduitManagerService, UserService {
 
-	// injection dépendance via setters 
-	// ou utiliser annotation autowire
-	private EBoutiqueDao dao;	
-	public void setDao(EBoutiqueDao dao) {
-		this.dao = dao;
-	}
+	@Autowired(required=true)
+	@Qualifier("eBoutiqueDao")
+	private EBoutiqueDao dao;
 
+//	private EBoutiqueDao dao;
+//	@Autowired
+//	public EBoutiqueServiceImpl(@Qualifier("eBoutiqueDao") EBoutiqueDao dao) {
+//		this.dao = dao;
+//	}
 
 	/**
 	 * PRODUIT
@@ -46,6 +54,7 @@ public class EBoutiqueServiceImpl implements CategorieManagerService, ProduitMan
 		dao.modifierProduit(p);
 	}
 
+	@Transactional(readOnly=true)
 	@Override
 	public List<Produit> listproduits() {
 		return dao.listproduits();
@@ -60,12 +69,14 @@ public class EBoutiqueServiceImpl implements CategorieManagerService, ProduitMan
 	public List<Produit> produitsParCategorie(Long idCat) {
 		return dao.produitsParCategorie(idCat);
 	}
-
+	
+	@Transactional(readOnly=true)
 	@Override
 	public List<Produit> produitsSelectionnes() {
 		return dao.produitsSelectionnes();
 	}
 
+	@Transactional(readOnly=true)
 	@Override
 	public Produit getProduit(Long idP) {
 		return dao.getProduit(idP);
@@ -80,11 +91,14 @@ public class EBoutiqueServiceImpl implements CategorieManagerService, ProduitMan
 		return dao.ajouterCategorie(c);
 	}
 
+	
+	@Transactional(readOnly=true)
 	@Override
 	public List<Categorie> listCategories() {
 		return dao.listCategories();
 	}
 
+	@Transactional(readOnly=true)
 	@Override
 	public Categorie getCategorie(Long idCat) {
 		return dao.getCategorie(idCat);

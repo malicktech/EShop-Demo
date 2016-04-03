@@ -25,8 +25,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
-import net.webapp.ecommerce.entites.Categorie;
-import net.webapp.ecommerce.metier.CategorieManagerService;
+import net.webapp.ecommerce.entities.Categorie;
+import net.webapp.ecommerce.services.CategorieManagerService;
 
 @Controller
 @RequestMapping(value = "/categories")

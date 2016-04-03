@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import net.webapp.ecommerce.entites.Categorie;
-import net.webapp.ecommerce.entites.Produit;
-import net.webapp.ecommerce.metier.ProduitManagerService;
+import net.webapp.ecommerce.entities.Categorie;
+import net.webapp.ecommerce.entities.Produit;
+import net.webapp.ecommerce.services.ProduitManagerService;
 
 /**
  * 
